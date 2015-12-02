@@ -1,0 +1,164 @@
+﻿<!DOCTYPE html>
+<html lang="en" ng-app="chartApp">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>3 Col Dashboard</title>
+    <link rel="stylesheet" href="Content/bootstrap.css">
+    <link rel="stylesheet" href="Content/angular-chart.css">
+    <link rel="stylesheet" href="Content/app.css">
+    <script src="Scripts/Chart.min.js"></script>
+    <script src="Scripts/angular.min.js"></script>
+    <script src="Scripts/angular-chart.js"></script>
+    <script src="Scripts/app.js"></script>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">DashMon</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="#">eBus</a>
+                    </li>
+                    <li>
+                        <a href="#">eBanking</a>
+                    </li>
+                    <li>
+                        <a href="#">Advice & Sales</a>
+                    </li>
+                    <li>
+                        <a href="#">Cards</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+    <!-- Page Content -->
+    <div class="container">
+        <!-- Page Header -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">
+                    DashMon
+                    <small>PBIT Application Monitoring Dashboard</small>
+                </h1>
+            </div>
+        </div>
+        <!-- /.row -->
+        <!-- Projects Row -->
+        <div class="row">
+            <div class="col-md-4 chart-item" ng-controller="LineCtrl">
+                <canvas id="line" class="chart chart-line" chart-data="data" chart-labels="labels" chart-legend="true" chart-series="series"
+                        chart-click="onClick"></canvas>
+                <h3>
+                    <a href="#">Line Chart</a>
+                </h3>
+                <p>Line chart with 2 series data.</p>
+            </div>
+            <div class="col-md-4 chart-item" ng-controller="BarCtrl">
+                <canvas id="bar" class="chart chart-bar" chart-data="data" chart-labels="labels" chart-legend="true" chart-series="series"
+                        chart-click="onClick"></canvas>
+                <h3>
+                    <a href="#">Bar Chart</a>
+                </h3>
+                <p>Bar chart with 2 series data.</p>
+            </div>
+            <div class="col-md-4 chart-item" ng-controller="PolarCtrl">
+                <canvas id="bar" class="chart chart-polar-area" chart-data="data" chart-labels="labels" chart-legend="true" chart-series="series"
+                        chart-click="onClick"></canvas>
+                <h3>
+                    <a href="#">Polar Area Chart</a>
+                </h3>
+                <p>Polar Area chart with 2 points data.</p>
+            </div>
+        </div>
+        <!-- /.row -->
+        <!-- Projects Row -->
+        <div class="row">
+            <div class="col-md-4 chart-item" ng-controller="RadarCtrl">
+                <canvas id="radar" class="chart chart-radar" chart-data="data" chart-labels="labels" chart-legend="true" chart-series="series"
+                        chart-click="onClick"></canvas>
+                <h3>
+                    <a href="#">Radar Chart</a>
+                </h3>
+                <p>Radar chart with 2 series data.</p>
+            </div>
+            <div class="col-md-4 chart-item" ng-controller="PieCtrl">
+                <canvas id="bar2" class="chart chart-pie" chart-data="data" chart-labels="labels" chart-legend="true" chart-series="series"
+                        chart-click="onClick"></canvas>
+                <h3>
+                    <a href="#">Pie Chart</a>
+                </h3>
+                <p>Pie chart with 7 points data.</p>
+            </div>
+            <div class="col-md-4 chart-item" ng-controller="DoughnutCtrl">
+                <canvas id="doughnut2" class="chart chart-doughnut" chart-data="data" chart-labels="labels" chart-click="onClick"></canvas>
+                <br>
+                <h3>
+                    <a href="#">Doughnut Chart</a>
+                </h3>
+                <p>Doughnut chart with 7 points data.</p>
+            </div>
+        </div>
+        <!-- /.row -->
+        <hr>
+        <!-- Pagination -->
+        <div class="row text-center">
+            <div class="col-lg-12">
+                <ul class="pagination">
+                    <li>
+                        <a href="#">&laquo;</a>
+                    </li>
+                    <li class="active">
+                        <a href="#">1</a>
+                    </li>
+                    <li>
+                        <a href="#">2</a>
+                    </li>
+                    <li>
+                        <a href="#">&raquo;</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- /.row -->
+        <hr>
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Footer Text</p>
+                </div>
+            </div>
+            <!-- /.row -->
+        </footer>
+    </div>
+    <!-- /.container -->
+    <!-- jQuery -->
+    <script src="Scripts/jquery-1.9.1.min.js"></script>
+    <script src="Scripts/bootstrap.min.js"></script>
+</body>
+</html>
