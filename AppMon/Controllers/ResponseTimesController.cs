@@ -22,6 +22,12 @@ namespace AppMon.Controllers
             return db.ResponseTimes;
         }
 
+        [ActionName("GetTop")]
+        public IQueryable<ResponseTime> GetTop10(int count)
+        {
+            return db.ResponseTimes.OrderByDescending(c => c.mtts).Take(count);
+        }
+
         // GET: api/ResponseTimes/5
         [ResponseType(typeof(ResponseTime))]
         public IHttpActionResult GetResponseTime(string id)
